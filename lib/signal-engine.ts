@@ -886,11 +886,16 @@ export class SignalEngine {
     return Math.sqrt(variance)
   }
 
-  openPosition(signal: Signal, quantity = 1): PortfolioPosition {
+  openPosition(signal: Signal, quantity = 1): PortfolioPosition | null {
+    // Don't open position for FLAT signals
+    if (signal.side === "FLAT") {
+      return null
+    }
+
     const position: PortfolioPosition = {
       id: `pos_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
       symbol: signal.symbol,
-      side: signal.side,
+      side: signal.side as "LONG" | "SHORT",
       entryPrice: signal.price,
       currentPrice: signal.price,
       quantity,

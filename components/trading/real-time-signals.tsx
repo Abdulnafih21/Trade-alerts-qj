@@ -90,7 +90,7 @@ export function RealTimeSignals() {
     const symbolCounts: Record<string, number> = signalList.reduce((acc, signal) => {
       acc[signal.symbol] = (acc[signal.symbol] || 0) + 1
       return acc
-    }, {})
+    }, {} as Record<string, number>)
 
     const entries = Object.entries(symbolCounts)
     entries.sort(([, a], [, b]) => b - a)
