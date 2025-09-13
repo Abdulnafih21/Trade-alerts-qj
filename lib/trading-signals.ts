@@ -1,4 +1,4 @@
-import { createServerClient } from "./supabase/server"
+import { getSupabaseClient } from "./supabase/client"
 import { binanceAPI } from "./binance-api"
 
 export interface TechnicalIndicators {
@@ -32,7 +32,7 @@ class TradingSignalsEngine {
 
   private async initializeSupabase() {
     try {
-      this.supabase = createServerClient()
+      this.supabase = getSupabaseClient()
       console.log("[v0] Supabase client initialized successfully")
     } catch (error) {
       console.error("[v0] Failed to initialize Supabase client:", error)
