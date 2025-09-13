@@ -15,9 +15,6 @@ const nextConfig = {
   },
   // Configure for development with proxy
   assetPrefix: undefined,
-  experimental: {
-    allowedHosts: true,
-  },
 }
 
 export default nextConfig
