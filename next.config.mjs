@@ -9,6 +9,15 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  // Allow all hosts for Replit environment
+  async rewrites() {
+    return []
+  },
+  // Configure for development with proxy
+  assetPrefix: undefined,
+  experimental: {
+    allowedHosts: true,
+  },
 }
 
 export default nextConfig
